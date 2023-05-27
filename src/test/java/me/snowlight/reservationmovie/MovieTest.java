@@ -18,10 +18,4 @@ public class MovieTest {
                     .isInstanceOf(RuntimeException.class);
     }
 
-    public interface Discounter {
-        Money discountMoney(Money money);
-    }
-
-    private class DiscountException extends RuntimeException {
-    }
 }
