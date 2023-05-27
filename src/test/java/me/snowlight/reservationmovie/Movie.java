@@ -11,6 +11,6 @@ class Movie {
     }
 
     public Money calculatePrice() {
-        return this.money.minus(discounter.discountMoney());
+        return discounter.discountMoney(this.money);
     }
 }

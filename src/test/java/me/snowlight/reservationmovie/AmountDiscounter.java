@@ -12,12 +12,12 @@ class AmountDiscounter implements Discounter {
     }
 
     @Override
-    public Money discountMoney() {
+    public Money discountMoney(Money currentMoney) {
         for (Rule rule : this.rules) {
             if (rule.isSatisfiedBy()) {
-                return discountMoney;
+                return currentMoney.minus(discountMoney);
             }
         }
-        return new Money(0);
+        return currentMoney;
     }
 }

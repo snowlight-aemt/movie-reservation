@@ -6,7 +6,7 @@ import org.mockito.BDDMockito;
 
 import java.util.List;
 
-public class DiscounterTest {
+public class AmountDiscounterTest {
     @Test
     void calculate_no_rule() {
         Rule mockRule = BDDMockito.mock(Rule.class);
@@ -15,7 +15,7 @@ public class DiscounterTest {
 
         Discounter discounter = new AmountDiscounter(new Money(10_000), rules);
 
-        Assertions.assertThat(discounter.discountMoney()).isEqualTo(new Money(0));
+        Assertions.assertThat(discounter.discountMoney(new Money(10_000))).isEqualTo(new Money(10_000));
     }
 
     @Test
@@ -24,9 +24,9 @@ public class DiscounterTest {
         BDDMockito.given(mockRule.isSatisfiedBy()).willReturn(true);
         List<Rule> rules = List.of(mockRule);
 
-        Discounter discounter = new AmountDiscounter(new Money(10_000), rules);
+        Discounter discounter = new AmountDiscounter(new Money(5_000), rules);
 
-        Assertions.assertThat(discounter.discountMoney()).isEqualTo(new Money(10_000));
+        Assertions.assertThat(discounter.discountMoney(new Money(5_000))).isEqualTo(new Money(0));
     }
 
 }
