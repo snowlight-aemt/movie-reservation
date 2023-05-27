@@ -4,8 +4,23 @@
 ## 목표
 * 제시한 내용을 토대로 설계, 구현해보자
 
+## 진행상항
+[O] Showing  
+[O] Movie  
+[O] Discounter  
+[O] DiscounterRule  
+[ ] Reservation
+
+![img.png](test.png)
+
+## 다음 작업
+* Reservation 클래스 테스트 & 구현 코드 작성
+* 통합 테스트 코드 작성
+* test 로 작성한 소스 패키징후 main 경로 이동
+* JPA 적용하여 테스트 작성
+
 ## UML
-https://drive.google.com/file/d/1Z6rSKKjJPlp3vXqcaMENHE0ca1zh6Y-_/view?usp=share_link
+reservation-movie.drawio 파일
 
 ## 내용
 개체지향을 설계하는 방법 (아키텍처)
