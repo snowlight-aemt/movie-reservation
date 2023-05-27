@@ -3,6 +3,7 @@ package me.snowlight.reservationmovie;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 public class MovieTest {
@@ -15,7 +16,7 @@ public class MovieTest {
 //        BDDMockito.willThrow(DiscountException.class)
 //                    .given(discounter).discountMoney();
 
-        Assertions.assertThatCode(() -> movie.calculatePrice())
+        Assertions.assertThatCode(() -> movie.calculatePrice(Mockito.any(ReservationCommand.class)))
                     .isInstanceOf(RuntimeException.class);
     }
 

@@ -1,9 +1,9 @@
 package me.snowlight.reservationmovie;
 
 class ShowingService {
-    public ReservationResult reserve(Movie movie) {
+    public ReservationResult reserve(Movie movie, ReservationCommand command) {
         try {
-            movie.calculatePrice();
+            movie.calculatePrice(command);
         } catch (Exception e) {
             return ReservationResult.MOVIE_CALCULATE_EXCEPTION;
         }

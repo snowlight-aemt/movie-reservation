@@ -1,15 +1,13 @@
 package me.snowlight.reservationmovie;
 
-import org.mockito.Mockito;
-
 import java.util.List;
 
 public abstract class Discounter {
     protected List<Rule> rules;
 
-    public Money discountMoney(Money currentMoney) {
+    public Money discountMoney(Money currentMoney, DiscountCommand command) {
         for (Rule rule : this.rules) {
-            if (rule.isSatisfiedBy(Mockito.any(RuleTest.RuleCommand.class))) {
+            if (rule.isSatisfiedBy(command)) {
                 return getCalculateMoney(currentMoney);
             }
         }

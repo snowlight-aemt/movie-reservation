@@ -10,7 +10,7 @@ class Movie {
         this.money = money;
     }
 
-    public Money calculatePrice() {
-        return discounter.discountMoney(this.money);
+    public Money calculatePrice(ReservationCommand command) {
+        return discounter.discountMoney(this.money, command.toDiscountCommand());
     }
 }
