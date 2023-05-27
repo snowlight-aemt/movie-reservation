@@ -26,25 +26,4 @@ public class ShowingServiceTest {
         Assertions.assertThat(result).isEqualTo(ReservationResult.MOVIE_CALCULATE_EXCEPTION);
     }
 
-    private class Movie {
-        public Integer calculatePrice() {
-            return null;
-        }
-    }
-
-    private class ShowingService {
-        public ReservationResult reserve(Movie movie) {
-            try {
-                movie.calculatePrice();
-            } catch (Exception e) {
-                return ReservationResult.MOVIE_CALCULATE_EXCEPTION;
-            }
-
-            return ReservationResult.SUCCESS;
-        }
-    }
-
-    private enum ReservationResult {
-        MOVIE_CALCULATE_EXCEPTION, SUCCESS
-    }
 }
