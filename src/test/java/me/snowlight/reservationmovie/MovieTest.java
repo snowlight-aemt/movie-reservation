@@ -7,15 +7,24 @@ import org.mockito.Mockito;
 
 public class MovieTest {
     Discounter discounter = Mockito.mock(Discounter.class);
-    Movie movie = new Movie(discounter, new Money(5_000));
+    Money movieFee = new Money(5_000);
+    Movie movie = new Movie(discounter, movieFee);
 
     @Test
     void calculatePrice() {
         BDDMockito.willThrow(DiscountException.class)
-                    .given(discounter).discountMoney(Mockito.any(Money.class));
+                    .given(discounter).discountMoney();
 
         Assertions.assertThatCode(() -> movie.calculatePrice())
                     .isInstanceOf(RuntimeException.class);
     }
 
+    @Test
+    void calculatePrice_success() {
+        Money monkeyDiscounted = new Money(1_000);
+        BDDMockito.given(discounter.discountMoney()).willReturn(monkeyDiscounted);
+
+        Money sut = movie.calculatePrice();
+        Assertions.assertThat(sut).isEqualTo(movieFee.minus(monkeyDiscounted));
+    }
 }
