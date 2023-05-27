@@ -25,4 +25,8 @@ public class Money {
     public int hashCode() {
         return Objects.hash(amount);
     }
+
+    public Money times(float value) {
+        return new Money((int) (amount * value));
+    }
 }
