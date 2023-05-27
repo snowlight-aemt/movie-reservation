@@ -2,10 +2,8 @@ package me.snowlight.reservationmovie;
 
 import java.util.List;
 
-public class PercentDiscounter implements Discounter {
-
+public class PercentDiscounter extends Discounter {
     private final float percent;
-    private final List<Rule> rules;
 
     public PercentDiscounter(float percent, List<Rule> rules) {
         this.percent = percent;
@@ -13,13 +11,7 @@ public class PercentDiscounter implements Discounter {
     }
 
     @Override
-    public Money discountMoney(Money currentMoney) {
-        for (Rule rule : rules) {
-            if (rule.isSatisfiedBy()) {
-                return currentMoney.minus(currentMoney.times(percent));
-            }
-        }
-
-        return currentMoney;
+    protected Money getCalculateMoney(Money currentMoney) {
+        return currentMoney.minus(currentMoney.times(percent));
     }
 }
