@@ -1,12 +1,14 @@
 package me.snowlight.reservationmovie;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.time.Month;
 
 public class RuleTest {
+    @DisplayName("할인 규칙을 만족하는 경우")
     @Test
     void satisfiedBy() {
         TimeRule timeRule = new TimeRule();
@@ -16,6 +18,7 @@ public class RuleTest {
         Assertions.assertTrue(sut);
     }
 
+    @DisplayName("할인 규칙을 만족하는 않는 경우")
     @Test
     void no_satisfiedBy_() {
         TimeRule timeRule = new TimeRule();

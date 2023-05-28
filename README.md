@@ -11,7 +11,7 @@
 [O] DiscounterRule  
 [ ] Reservation
 
-![img.png](test.png)
+![img.png](test-code-2.png)
 
 ## 다음 작업
 * Reservation 클래스 테스트 & 구현 코드 작성
