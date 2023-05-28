@@ -3,7 +3,7 @@ package me.snowlight.reservationmovie;
 class ShowingService {
     public ReservationResult reserve(Movie movie, ReservationCommand command) {
         try {
-            ReservationTest.ReservationService reservationService = new ReservationTest.ReservationService();
+            ReservationService reservationService = new ReservationService();
             reservationService.reserve(movie, command);
 
 //            movie.calculatePrice(command);
