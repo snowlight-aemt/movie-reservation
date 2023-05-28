@@ -14,10 +14,9 @@
 ![img.png](test-code-2.png)
 
 ## 다음 작업
-* Reservation 클래스 테스트 & 구현 코드 작성
+* ~~Reservation 클래스 테스트 & 구현 코드 작성~~
 * 통합 테스트 코드 작성
 * test 로 작성한 소스 패키징후 main 경로 이동
-* JPA 적용하여 테스트 작성
 
 ## UML
 reservation-movie.drawio 파일
