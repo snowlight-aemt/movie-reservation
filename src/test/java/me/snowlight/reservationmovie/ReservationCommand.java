@@ -9,6 +9,10 @@ public class ReservationCommand {
         this.reservedAt = reservedAt;
     }
 
+    public LocalDateTime getReservedAt() {
+        return reservedAt;
+    }
+
     public DiscountCommand toDiscountCommand() {
         return new DiscountCommand(reservedAt);
     }
